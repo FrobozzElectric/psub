@@ -732,10 +732,11 @@ def album(psub, search_term, randomise):
         click.secho('Albums', bg='red', fg='black')
         click.secho(
             '\n'.join(
-                '{}\t{}\t{}'.format(
+                '{}\t{}\t{} {}'.format(
                     str(album.get('id')).ljust(7),
                     str(album.get('artist')).ljust(30),
-                    album.get('name')
+                    album.get('name'),
+                    '({})'.format(album.get('year')) if album.get('year') else ''
                 ) for album in results.get('album', [])
             ),
             fg='yellow'
